@@ -1,11 +1,8 @@
 class ConfirmationDialog {
   popup = document.createElement('div')
-  overlay = document.createElement('div')
 
   showDialog = () => {
     document.body.appendChild(this.popup)
-    this.overlay.id = 'overlay'
-    // document.body.appendChild(this.overlay)
     this.popup.id = 'popup'
     this.popup.style.display = 'block'
 
