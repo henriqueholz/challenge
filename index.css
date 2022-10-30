@@ -1,4 +1,4 @@
-.popup {
+#popup {
   width: 80%;
   padding: 15px;
   left: 0;
@@ -15,7 +15,7 @@
   text-align: center;
 }
 
-.overlay {
+#overlay {
   position: fixed;
   width: 100%;
   top: 0;
@@ -46,7 +46,7 @@
   }
 }
 
-.dialog-btn {
+#dialog-btn {
   background-color:#44B78B;
   color: white;
   font-weight: 700;
@@ -55,7 +55,8 @@
   height: 30px;
   width: 30%;
 }
-.dialog-btn:hover {
+#dialog-btn:hover {
   background-color:#015249;
   cursor: pointer;
 }
+

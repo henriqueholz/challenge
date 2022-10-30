@@ -1,25 +1,45 @@
 class ConfirmationDialog {
-  constructor() {}
+  popup = document.createElement('div')
+  overlay = document.createElement('div')
 
   showDialog = () => {
-    var overlayme = document.getElementById('dialog-container')
-    overlayme.style.display = 'block'
+    document.body.appendChild(this.popup)
+    this.overlay.id = 'overlay'
+    // document.body.appendChild(this.overlay)
+    this.popup.id = 'popup'
+    this.popup.style.display = 'block'
+
+    this.addText('Are you sure you want to continue?')
+    this.addButton('yes', 'dialog-btn btn-yes', this.showNotification)
+    this.addButton('cancel', 'dialog-btn btn-cancel', this.showNotification)
   }
 
-  hideDialog = () => {
-    document.getElementById('yes').onclick = function () {
-      confirm()
+  showNotification = () => {
+    let displayMessage = document.getElementById('display_notification')
+    displayMessage.innerHTML = `You just clicked "${event.target.innerHTML}".`
+    this.hideDialog(this.popup, this.overlay)
+  }
+
+  hideDialog = (node, overlayNode) => {
+    while (node.lastChild) {
+      node.removeChild(node.lastChild)
     }
-    function confirm() {
-      var overlayme = document.getElementById('dialog-container')
-      overlayme.style.display = 'none'
-      showNotification()
-    }
-    function showNotification() {
-      let displayMessage = document.getElementById('notification')
-      console.log(displayMessage)
-      displayMessage.innerHTML = `You just clicked "yes".`
-    }
+    document.body.removeChild(node)
+    document.body.removeChild(overlayNode)
+  }
+
+  addText = text => {
+    let popupText = document.createElement('p')
+    popupText.innerHTML = text
+    this.popup.appendChild(popupText)
+  }
+
+  addButton = (label, id, clickFunction) => {
+    let newButton = document.createElement('button')
+    newButton.innerHTML = label
+    newButton.id = id
+    newButton.onclick = clickFunction
+    this.popup.appendChild(newButton)
   }
 }
 
