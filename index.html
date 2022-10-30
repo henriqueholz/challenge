@@ -16,10 +16,17 @@
       <div class="popup">
         <p>Are you sure you want to continue?</p>
         <div class="text-right">
-          <button class="dialog-btn btn-primary" id="confirm">Ok</button>
+          <button
+            class="dialog-btn btn-yes"
+            id="yes"
+            onclick="confirmationLog.hideDialog()"
+          >
+            Yes
+          </button>
           <button class="dialog-btn btn-cancel" id="cancel">Cancel</button>
         </div>
       </div>
     </div>
+    <div id="notification">
   </body>
 </html>
