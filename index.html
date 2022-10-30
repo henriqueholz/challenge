@@ -4,10 +4,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="index.css" />
+    <script type="text/javascript" src="index.js"></script>
     <title>Reusable confirmation dialog</title>
   </head>
   <body>
-    <button>Click Me</button>
-    <script src="js/scripts.js"></script>
+    <button id="dialog-toggl" onclick="confirmationLog.showDialog()">
+      Click Me
+    </button>
+    <div class="overlay" id="dialog-container">
+      <div class="popup">
+        <p>Are you sure you want to continue?</p>
+        <div class="text-right">
+          <button class="dialog-btn btn-primary" id="confirm">Ok</button>
+          <button class="dialog-btn btn-cancel" id="cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
